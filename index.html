@@ -24,17 +24,33 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="./site.webmanifest" />
 
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+<!-- Google Fonts (Inter for headings) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
 <script src="https://cdn.jsdelivr.net/npm/card3d@2.6.5/dist/card3d.min.js"></script>
 
       <link rel="stylesheet" href="./assets/index.css">
     </head>
 
-    <body>
+    <body class="relative">
+        <!-- Ambient Background -->
+        <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+            <div class="absolute inset-0 bg-base-100"></div>
+            <div class="absolute top-0 left-0 right-0 h-[80vh] bg-grid-pattern"></div>
+            <div class="ambient-blob ambient-blob-primary absolute -top-[20%] -right-[10%] w-[600px] h-[600px]"></div>
+            <div class="ambient-blob ambient-blob-secondary absolute top-[20%] -left-[10%] w-[500px] h-[500px]"></div>
+        </div>
+
         <div
     id="layout-topbar"
-    class="bg-base-100 lg:bg-base-100/90 border-base-300 sticky top-0 z-10 border-b data-[at-top=true]:border-transparent lg:backdrop-blur-sm">
+    class="glass-nav sticky top-0 z-50 border-b border-base-300/50 data-[at-top=true]:border-transparent transition-all duration-300">
     <div class="container">
-        <nav class="flex items-center justify-between py-2">
+        <nav class="flex items-center justify-between py-3">
             <div class="flex items-center gap-2">
                 <label
                     for="menu-drawer"
@@ -45,23 +61,28 @@
                 </label>
 
                 <!-- Navbar Brand logo -->
-                <a href="#" class="flex items-center gap-2">
-                    <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
-                    <span class="text-xl font-semibold">DemandOps</span>
+                <a href="#" class="group flex items-center gap-2.5">
+                    <div class="relative overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
+                    </div>
+                    <span class="text-lg font-semibold tracking-tight">DemandOps</span>
                 </a>
             </div>
 
             <div class="max-lg:hidden">
-                <ul class="menu menu-horizontal gap-2 px-1">
-                    <li class="font-medium"><a href="#vision">Vision</a></li>
-                    <li class="font-medium"><a href="#products">Products</a></li>
-                    <li class="font-medium"><a href="#partners">Partners</a></li>
-                    <li class="font-medium"><a href="#about">About</a></li>
+                <ul class="flex items-center gap-8 text-sm font-medium text-base-content/60">
+                    <li><a href="#vision" class="hover:text-base-content transition-colors">Vision</a></li>
+                    <li><a href="#products" class="hover:text-base-content transition-colors">Products</a></li>
+                    <li><a href="#technology" class="hover:text-base-content transition-colors">Technology</a></li>
+                    <li><a href="#partners" class="hover:text-base-content transition-colors">Partners</a></li>
                 </ul>
             </div>
 
             <div class="space-x-2">
-                <a href="mailto:hello@demandops.com" class="btn btn-primary btn-sm">Contact</a>
+                <a href="mailto:hello@demandops.com" class="group btn btn-primary btn-sm rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                    <span>Contact</span>
+                    <span class="iconify lucide--arrow-right size-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></span>
+                </a>
             </div>
         </nav>
 
@@ -78,8 +99,8 @@
                     <ul class="menu w-full gap-2 p-0 pt-4">
                         <li class="font-medium"><a href="#vision">Vision</a></li>
                         <li class="font-medium"><a href="#products">Products</a></li>
+                        <li class="font-medium"><a href="#technology">Technology</a></li>
                         <li class="font-medium"><a href="#partners">Partners</a></li>
-                        <li class="font-medium"><a href="#about">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,106 +111,259 @@
 
 
         <!-- HERO SECTION -->
-        <section class="py-8 lg:py-20" id="home">
+        <section class="relative pt-24 pb-12 lg:pt-40 lg:pb-24 overflow-hidden" id="home">
             <div class="container">
-                <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
-                    <div class="max-lg:order-2">
-                        <h1 class="text-4xl font-bold tracking-tight lg:text-6xl lg:leading-none">
-                            The AI-Powered Operating System
-                            <span class="text-primary">for Home Improvement</span>
+                <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+                    <div class="max-lg:order-2" data-aos="fade-up" data-aos-duration="1000">
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Unfreezing €71B in Demand
+                        </div>
+
+                        <h1 class="text-4xl font-semibold tracking-tight lg:text-6xl lg:leading-[1.1]">
+                            The Operating System for
+                            <span class="text-gradient-primary">Home Improvement</span>
                         </h1>
-                        <p class="text-base-content/80 mt-6 text-lg sm:text-xl font-medium">
-                            DemandOps builds and operates a portfolio of category-specific and country-specific products - all powered by our proprietary Demand Organisation Technology, which turns homeowner dreams and frustrations into actionable, purchasable projects.
+                        <p class="text-base-content/70 mt-6 text-lg lg:text-xl leading-relaxed max-w-xl">
+                            We build and operate the intelligent layer that sits between homeowner dreams and retail execution. Powered by proprietary Demand Organisation Technology.
                         </p>
-                        <p class="text-base-content/60 mt-4 text-base sm:text-lg">
-                            We're building a scalable ecosystem that unfreezes the €71B European home improvement market. Our unified platform, built on proprietary IP, captures and structures consumer demand  -  powering localized brands that convert inspiration into confident execution.
-                        </p>
-                        <div class="mt-8 inline-flex gap-3 sm:mt-16">
+                        <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-12">
                             <a href="#products">
-                                <button class="btn btn-primary btn-lg">
-                                    Explore Our Portfolio →
+                                <button class="btn btn-primary btn-lg rounded-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
+                                    Explore Portfolio
                                 </button>
                             </a>
-                            <a href="#partners">
-                                <button class="btn btn-ghost btn-lg">Partner With Us →</button>
+                            <a href="mailto:hello@demandops.com">
+                                <button class="btn btn-ghost btn-lg rounded-lg border border-base-300 hover:bg-base-200 transition-all group">
+                                    Partner With Us
+                                    <span class="iconify lucide--arrow-up-right size-4 text-base-content/40 group-hover:text-base-content transition-colors"></span>
+                                </button>
                             </a>
                         </div>
+
+                        <!-- Mini Stats -->
+                        <div class="mt-12 pt-8 border-t border-base-300 flex items-center gap-8" data-aos="fade-up" data-aos-delay="200">
+                            <div>
+                                <p class="text-2xl font-semibold tracking-tight">€71B</p>
+                                <p class="text-xs text-base-content/50 font-medium uppercase tracking-wide mt-1">Market Opportunity</p>
+                            </div>
+                            <div class="w-px h-8 bg-base-300"></div>
+                            <div>
+                                <p class="text-2xl font-semibold tracking-tight">20min</p>
+                                <p class="text-xs text-base-content/50 font-medium uppercase tracking-wide mt-1">Idea to Plan</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div
-                        class="from-primary/40 to-secondary/40 h-fit rounded-2xl bg-linear-to-r p-3 max-lg:order-1 hidden lg:block"
-                        data-card3d
-                        data-card3d-perspective="1000"
-                        data-card3d-full-page-listening>
-                        <img alt="Transform paralysis into action" class="rounded-lg" src="./images/landing/hero.png" />
-                    </div>
-                </div>
+                    <!-- Right Visual (Abstract UI) -->
+                    <div class="relative w-full h-full min-h-[400px] flex items-center justify-center max-lg:order-1 max-lg:hidden" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                        <!-- Background Decoration -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-60"></div>
 
-                <!-- Stats Bar -->
-                <div class="mt-12 grid grid-cols-1 gap-8 lg:mt-32 lg:grid-cols-3">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">€71B</div>
-                        <div class="text-base-content/60 mt-2 text-sm lg:text-base">European Market</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">20 min</div>
-                        <div class="text-base-content/60 mt-2 text-sm lg:text-base">Photos to Plan</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">Platform</div>
-                        <div class="text-base-content/60 mt-2 text-sm lg:text-base">Demand Organisation</div>
+                        <!-- Main UI Card -->
+                        <div class="relative w-full max-w-md bg-base-100 rounded-2xl shadow-2xl shadow-base-content/10 border border-base-300/60 overflow-hidden animate-float z-20">
+                            <!-- Header -->
+                            <div class="h-10 border-b border-base-300 bg-base-200/50 flex items-center px-4 gap-2">
+                                <div class="flex gap-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-base-300"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-base-300"></div>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                        <span class="iconify lucide--sparkles size-4"></span>
+                                    </div>
+                                    <div class="px-2 py-1 rounded bg-success/10 text-success text-[10px] font-bold uppercase tracking-wide">
+                                        Analysis Complete
+                                    </div>
+                                </div>
+                                <!-- Mock Data Lines -->
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded bg-base-200 border border-base-300 flex items-center justify-center shrink-0">
+                                            <span class="iconify lucide--scan-line size-4 text-base-content/40"></span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="h-2 w-24 bg-base-300 rounded mb-1.5"></div>
+                                            <div class="h-1.5 w-16 bg-base-200 rounded"></div>
+                                        </div>
+                                        <div class="text-xs font-mono text-base-content/40">98%</div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded bg-base-200 border border-base-300 flex items-center justify-center shrink-0">
+                                            <span class="iconify lucide--shopping-cart size-4 text-base-content/40"></span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="h-2 w-32 bg-base-300 rounded mb-1.5"></div>
+                                            <div class="h-1.5 w-20 bg-base-200 rounded"></div>
+                                        </div>
+                                        <div class="text-xs font-mono text-base-content/40">Ready</div>
+                                    </div>
+                                </div>
+                                <!-- Action Button Mock -->
+                                <div class="mt-6 h-9 w-full bg-primary rounded flex items-center justify-center text-primary-content text-xs font-medium">
+                                    Generate Project Plan
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 1 -->
+                        <div class="absolute -right-4 bottom-12 w-48 p-4 glass-panel rounded-xl shadow-xl border border-base-300/50 z-30 animate-float" style="animation-delay: 1s;">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-warning/10 flex items-center justify-center text-warning">
+                                    <span class="iconify lucide--ruler size-4"></span>
+                                </div>
+                                <div class="text-xs font-medium">Dimensions</div>
+                            </div>
+                            <div class="w-full bg-base-300 rounded-full h-1.5 mb-1">
+                                <div class="bg-warning h-1.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute -left-4 top-20 w-48 p-4 glass-panel rounded-xl shadow-xl border border-base-300/50 z-10 animate-float" style="animation-delay: 2s;">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                                    <span class="iconify lucide--layers size-4"></span>
+                                </div>
+                                <div class="text-xs font-medium">Materials</div>
+                            </div>
+                            <div class="flex -space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-300"></div>
+                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-content/30"></div>
+                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-content/50"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- OUR MODEL -->
-        <section class="relative py-8 lg:py-20" id="model">
+        <!-- FOUNDATION SECTION -->
+        <section class="py-16 lg:py-24 bg-base-100 border-y border-base-300/50" id="vision">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">One Technology Foundation. Many Market-Specific Products.</h2>
-                    <p class="text-base-content/80 mx-auto mt-4 max-w-3xl text-lg">
-                        At the core of every DemandOps product is the same proprietary system  -  a multi-layer technology that transforms homeowner dreams and frustrations into organized, ready-to-execute demand. This shared technology platform enables us to replicate success efficiently across categories and geographies.
-                    </p>
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-8" data-aos="fade-up">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl font-semibold tracking-tight mb-4">
+                            One Foundation. <span class="text-base-content/40">Infinite Applications.</span>
+                        </h2>
+                        <p class="text-lg text-base-content/70 leading-relaxed">
+                            At the core of every DemandOps product is a unified technology stack. We don't just build apps; we build a scalable engine for home improvement demand.
+                        </p>
+                    </div>
+                    <div class="hidden md:block">
+                        <span class="iconify lucide--cpu size-12 text-base-content/10"></span>
+                    </div>
                 </div>
 
-                <div class="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-12 lg:mt-20">
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">🧬</div>
-                            <h3 class="text-xl font-semibold">Unified Platform</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Proprietary AI methods, data models, and product intelligence built on a single platform, deployed across all brands.
-                            </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-secondary shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="iconify lucide--network size-5"></span>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">Unified Platform</h3>
+                        <p class="text-sm text-base-content/60 leading-relaxed">Proprietary AI methods and product intelligence built on a single core.</p>
+                    </div>
+
+                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-primary shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="iconify lucide--globe-2 size-5"></span>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">Local Context</h3>
+                        <p class="text-sm text-base-content/60 leading-relaxed">Tailored specifically to country regulations, catalogs, and cultures.</p>
+                    </div>
+
+                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-error shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="iconify lucide--trending-up size-5"></span>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">Scalable System</h3>
+                        <p class="text-sm text-base-content/60 leading-relaxed">One engine powers multiple consumer-facing apps, creating network effects.</p>
+                    </div>
+
+                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-success shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="iconify lucide--check-circle-2 size-5"></span>
+                        </div>
+                        <h3 class="text-base font-semibold mb-2">Proven Model</h3>
+                        <p class="text-sm text-base-content/60 leading-relaxed">Launching via TuinPlan, our first vertical in intelligent garden planning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEEP TECH SECTION -->
+        <section class="py-16 lg:py-24 bg-neutral text-neutral-content relative overflow-hidden" id="technology">
+            <!-- Abstract Background -->
+            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                <div class="absolute right-0 top-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"></div>
+                <div class="absolute left-0 bottom-0 w-[500px] h-[500px] bg-secondary rounded-full blur-[120px]"></div>
+            </div>
+
+            <div class="container relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="lg:sticky lg:top-24" data-aos="fade-right">
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
+                            The Demand Organisation <br>
+                            <span class="text-primary">Technology Stack</span>
+                        </h2>
+                        <p class="text-neutral-content/60 text-lg leading-relaxed mb-8">
+                            Our proprietary IP converts homeowner desires into structured, actionable demand through a multi-stage AI process.
+                        </p>
+
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
+                                <span class="iconify lucide--brain-circuit size-6 text-primary"></span>
+                                <span class="font-medium text-neutral-content/90">Desire Understanding Engine</span>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
+                                <span class="iconify lucide--database size-6 text-secondary"></span>
+                                <span class="font-medium text-neutral-content/90">Real-Time Product Intelligence</span>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
+                                <span class="iconify lucide--git-merge size-6 text-success"></span>
+                                <span class="font-medium text-neutral-content/90">Project Decomposition</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">🌍</div>
-                            <h3 class="text-xl font-semibold">Local Products</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Each brand is tailored to a specific home improvement category and country.
+                    <div class="grid gap-6" data-aos="fade-left">
+                        <!-- Tech Card 1 -->
+                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-6">
+                                <span class="iconify lucide--eye size-6 text-primary"></span>
+                            </div>
+                            <h3 class="text-xl font-medium mb-3">Computer Vision Analysis</h3>
+                            <p class="text-neutral-content/60 leading-relaxed">
+                                Uses multimodal AI to scan user photos, understanding spatial constraints, lighting conditions, and existing structures instantly.
                             </p>
                         </div>
-                    </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">📈</div>
-                            <h3 class="text-xl font-semibold">Scalable System</h3>
-                            <p class="text-base-content/80 mt-3">
-                                One engine powers multiple consumer-facing apps  -  creating network effects in data and demand.
+                        <!-- Tech Card 2 -->
+                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                                <span class="iconify lucide--shopping-bag size-6 text-secondary"></span>
+                            </div>
+                            <h3 class="text-xl font-medium mb-3">Retail Matchmaking</h3>
+                            <p class="text-neutral-content/60 leading-relaxed">
+                                Matches abstract design concepts to SKUs available in local inventory, generating live pricing and availability.
                             </p>
                         </div>
-                    </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">✓</div>
-                            <h3 class="text-xl font-semibold">Proven Framework</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Launching through TuinPlan, our first vertical in intelligent garden planning (January 2026).
+                        <!-- Tech Card 3 -->
+                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-warning/20 flex items-center justify-center mb-6">
+                                <span class="iconify lucide--git-merge size-6 text-warning"></span>
+                            </div>
+                            <h3 class="text-xl font-medium mb-3">Phased Execution Plans</h3>
+                            <p class="text-neutral-content/60 leading-relaxed">
+                                Automatically breaks large renovations into bite-sized, budget-friendly projects to increase conversion.
                             </p>
                         </div>
                     </div>
@@ -197,289 +371,152 @@
             </div>
         </section>
 
-        <!-- OUR TECHNOLOGY -->
-        <section class="bg-base-200 py-8 lg:py-20" id="technology">
+        <!-- PRODUCT PORTFOLIO (Bento Grid) -->
+        <section class="py-24 lg:py-32 bg-base-200/50 relative" id="products">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">The Demand Organisation Technology</h2>
-                    <p class="text-base-content/80 mx-auto mt-4 max-w-3xl text-lg">
-                        Our proprietary IP converts homeowner desires into structured, actionable demand  -  connecting inspiration to retail execution.
-                    </p>
+                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-semibold tracking-tight mb-4">Product Portfolio</h2>
+                    <p class="text-base-content/60 text-lg">Consumer-ready experiences that capture homeowner desires early.</p>
                 </div>
 
-                <div class="mt-12 grid gap-8 lg:grid-cols-2 lg:mt-20">
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">🧠</div>
-                            <h3 class="text-xl font-semibold">AI-Powered Desire Understanding</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Uses computer vision and multimodal AI to understand homeowner desires from photos, voice, and other inputs - capturing the vision, problem space, and solution space.
-                            </p>
+                <div class="grid lg:grid-cols-3 gap-6 auto-rows-[minmax(350px,auto)]">
+
+                    <!-- TuinPlan (Featured) -->
+                    <div class="lg:col-span-2 relative group overflow-hidden rounded-3xl bg-base-100 border border-base-300/50 shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up">
+                        <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <span class="iconify lucide--flower-2 size-64 text-success"></span>
                         </div>
-                    </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">💡</div>
-                            <h3 class="text-xl font-semibold">Real-Time Product Intelligence</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Matches projects to purchasable products and pricing from retail partners.
-                            </p>
-                        </div>
-                    </div>
+                        <div class="relative h-full p-8 lg:p-10 flex flex-col justify-between z-10">
+                            <div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold uppercase tracking-wider mb-6">
+                                    Launching Jan 2026
+                                </div>
+                                <h3 class="text-3xl font-semibold mb-2">TuinPlan</h3>
+                                <p class="text-base-content/60 text-lg max-w-md">The intelligent garden planner. From photo to planting list in minutes.</p>
+                            </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">🪜</div>
-                            <h3 class="text-xl font-semibold">Project Decomposition Engine</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Breaks complex renovations into achievable, phase-based projects.
-                            </p>
-                        </div>
-                    </div>
+                            <div class="mt-8 lg:mt-12 bg-base-200/50 rounded-2xl p-6 border border-base-300/50 max-w-md">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-base-100 flex items-center justify-center border border-base-300 shrink-0">
+                                        <span class="iconify lucide--check size-5 text-success"></span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-sm">First Vertical</h4>
+                                        <p class="text-xs text-base-content/60 mt-1 leading-relaxed">Applying DemandOps tech to garden renovations. Generates shopping lists for retail partners.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <div class="text-4xl mb-3">📊</div>
-                            <h3 class="text-xl font-semibold">Demand Data Layer</h3>
-                            <p class="text-base-content/80 mt-3">
-                                Aggregates category-level insights to improve accuracy and scale.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-box p-8 text-center lg:p-12">
-                    <p class="text-2xl font-semibold lg:text-3xl">
-                        Built once. Applied everywhere.
-                    </p>
-                    <p class="text-base-content/80 mt-4 text-lg">
-                        A single IP stack powering every product in the DemandOps portfolio.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY IT MATTERS -->
-        <section class="bg-base-200 py-8 lg:py-20" id="why-it-matters">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">Unfreezing €71B in Stalled Demand</h2>
-                    <p class="text-base-content/80 mx-auto mt-4 max-w-3xl text-lg">
-                        Across Europe, billions in potential sales are lost every year as homeowners get stuck between inspiration and execution. DemandOps products activate that frozen demand  -  converting it into structured, qualified retail opportunities.
-                    </p>
-                </div>
-
-                <div class="mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4 lg:mt-20">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">97%</div>
-                        <div class="text-base-content/60 mt-2">cheaper than traditional design services</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">20 min</div>
-                        <div class="text-base-content/60 mt-2">from idea to plan</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">1000s</div>
-                        <div class="text-base-content/60 mt-2">of projected projects at scale</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-primary lg:text-5xl">Billions</div>
-                        <div class="text-base-content/60 mt-2">in addressable market potential</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VISION -->
-        <section class="py-8 lg:py-20" id="vision">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">From Garden Plans to Europe-Wide Execution</h2>
-                    <p class="text-base-content/80 mx-auto mt-6 max-w-3xl text-lg leading-relaxed">
-                        Our mission is to unfreeze demand in the €71B European home improvement market  -  one category and one country at a time.
-                    </p>
-                </div>
-
-                <div class="mt-12 max-w-4xl mx-auto space-y-6">
-                    <p class="text-base-content/80 text-lg leading-relaxed text-center">
-                        Starting with gardens through TuinPlan (launching January 2026), we're building a platform that will expand across every major home improvement vertical using the same DemandOps technology foundation.
-                    </p>
-                    <p class="text-base-content/80 text-lg leading-relaxed text-center font-medium">
-                        We're building a repeatable model that turns dreams into execution, across every home, in every market.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- OUR PORTFOLIO -->
-        <section class="bg-base-200 py-8 lg:py-20" id="products">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">A Growing Family of Intelligent Home Improvement Products</h2>
-                    <p class="text-base-content/80 mt-4 max-w-3xl mx-auto text-lg">
-                        Each DemandOps brand applies our technology to a specific category  -  delivering localized, consumer-ready experiences that capture homeowner desires early and drive retail demand.
-                    </p>
-                </div>
-
-                <div class="mt-12 grid gap-8 lg:grid-cols-3">
-                    <!-- TuinPlan -->
-                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                        <div class="card-body">
-                            <div class="badge badge-success badge-lg">Launching January 2026</div>
-                            <h3 class="mt-3 text-2xl font-bold">TuinPlan</h3>
-                            <p class="text-primary text-lg font-semibold">Intelligent Garden Planning</p>
-                            <p class="text-base-content/80 mt-3">
-                                Upload photos, receive actionable plans, phased projects, and real shopping lists.
-                            </p>
-                            <p class="text-base-content/60 mt-2 text-sm">
-                                Status: Launching January 2026
-                            </p>
-
-                            <div class="divider"></div>
-
-                            <p class="text-base-content/80 text-sm">
-                                Our first vertical applying Demand Organisation Technology to garden renovations  -  proving the model that will scale across categories and geographies.
-                            </p>
-
-                            <a href="mailto:hello@demandops.com" class="mt-4">
-                                <button class="btn btn-primary btn-block">
+                            <a href="mailto:hello@demandops.com" class="mt-6 inline-flex">
+                                <button class="btn btn-primary rounded-lg shadow-lg shadow-primary/20">
                                     <span class="iconify lucide--mail size-4"></span>
-                                    Get Early Access →
+                                    Get Early Access
                                 </button>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Next Categories -->
-                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                        <div class="card-body">
-                            <div class="badge badge-secondary badge-lg">2026–2027</div>
-                            <h3 class="mt-3 text-2xl font-bold">Next Categories</h3>
-                            <p class="text-secondary text-lg font-semibold">Validated Demand, Proven Model</p>
-                            <p class="text-base-content/80 mt-3">
-                                Applying the same IP foundation to new verticals based on validated consumer demand research.
+                    <!-- Expansion -->
+                    <div class="lg:col-span-1 relative group overflow-hidden rounded-3xl bg-neutral text-neutral-content border border-neutral shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20"></div>
+
+                        <div class="relative h-full p-8 lg:p-10 flex flex-col">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-content/10 flex items-center justify-center mb-6 backdrop-blur-md border border-neutral-content/10">
+                                <span class="iconify lucide--layers size-6 text-secondary"></span>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-2">Future Verticals</h3>
+                            <p class="text-neutral-content/60 text-sm leading-relaxed mb-8">
+                                Kitchens, Bathrooms, and Flooring. We validate demand before writing code.
                             </p>
+                            <div class="mt-auto space-y-3">
+                                <div class="flex items-center justify-between text-xs text-neutral-content/50 border-b border-neutral-content/10 pb-2">
+                                    <span>Kitchens</span>
+                                    <span>2026</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-neutral-content/50 border-b border-neutral-content/10 pb-2">
+                                    <span>Bathrooms</span>
+                                    <span>2027</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-neutral-content/50 border-b border-neutral-content/10 pb-2">
+                                    <span>Flooring</span>
+                                    <span>2027</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                            <div class="divider"></div>
-
-                            <p class="text-base-content/80 text-sm">
-                                Expansion categories under evaluation include kitchens, bathrooms, flooring, and outdoor living  -  each will follow the same demand organisation model being validated through TuinPlan.
+                    <!-- Geography -->
+                    <div class="lg:col-span-1 relative group overflow-hidden rounded-3xl bg-base-100 border border-base-300/50 shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-full p-8 lg:p-10 flex flex-col">
+                            <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+                                <span class="iconify lucide--map size-6 text-primary"></span>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-2">Geo Expansion</h3>
+                            <p class="text-base-content/60 text-sm leading-relaxed mb-8">
+                                Localized versions adapted to regional retailer ecosystems and languages.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Future Geographies -->
-                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                        <div class="card-body">
-                            <div class="badge badge-info badge-lg">2027+</div>
-                            <h3 class="mt-3 text-2xl font-bold">Future Geographies</h3>
-                            <p class="text-info text-lg font-semibold">Expanding Across Europe</p>
-                            <p class="text-base-content/80 mt-3">
-                                Localized versions of our brands adapted to regional retailer ecosystems.
-                            </p>
-
-                            <div class="divider"></div>
-
-                            <p class="text-base-content/80 text-sm">
-                                Each market gets tailored products with local language, pricing, and retail partnerships  -  all powered by the same core technology platform.
-                            </p>
+                    <!-- Partners CTA -->
+                    <div class="lg:col-span-2 relative group overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary text-primary-content shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-base-100/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                        <div class="relative h-full p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">Retail Partnerships</h3>
+                                <p class="text-primary-content/80 text-sm max-w-sm">
+                                    Integrate our demand engine. Receive qualified, structured orders ready for transaction.
+                                </p>
+                            </div>
+                            <a href="mailto:hello@demandops.com">
+                                <button class="shrink-0 btn bg-base-100 text-primary hover:bg-base-200 border-0 rounded-xl shadow-xl">
+                                    Become a Partner
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- FOR PARTNERS -->
-        <section class="py-8 lg:py-20" id="partners">
+        <section class="py-16 lg:py-24" id="partners">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">For Retail, Manufacturing, and Industry Partners</h2>
-                    <p class="text-base-content/80 mx-auto mt-4 max-w-3xl text-lg">
-                        Our products reach homeowners at the critical "I'm ready, but don't know how" moment  -  before paralysis kills momentum. We deliver fully specified, purchase-ready demand directly to retailers, manufacturers, and service providers.
-                    </p>
-                </div>
+                <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-semibold tracking-tight mb-6">For Retail & Industry Partners</h2>
+                        <p class="text-base-content/70 text-lg leading-relaxed mb-8">
+                            Our products reach homeowners at the critical "I'm ready, but don't know how" moment - before paralysis kills momentum.
+                        </p>
 
-                <div class="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-12">
-                    <div class="card bg-base-100">
-                        <div class="card-body">
-                            <h3 class="text-xl font-semibold">Partner Benefits</h3>
-                            <div class="mt-4 space-y-3">
-                                <div class="flex items-start gap-3">
-                                    <span class="iconify lucide--check-circle size-6 text-primary flex-shrink-0 mt-1"></span>
-                                    <span>Qualified, structured demand ready to transact</span>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <span class="iconify lucide--check-circle size-6 text-primary flex-shrink-0 mt-1"></span>
-                                    <span>Category intelligence and early homeowner desire data</span>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <span class="iconify lucide--check-circle size-6 text-primary flex-shrink-0 mt-1"></span>
-                                    <span>White-label and co-branding opportunities</span>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <span class="iconify lucide--check-circle size-6 text-primary flex-shrink-0 mt-1"></span>
-                                    <span>Scalable integrations across multiple countries and verticals</span>
-                                </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
+                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
+                                <span class="text-sm">Qualified, structured demand ready to transact</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
+                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
+                                <span class="text-sm">Category intelligence and early homeowner desire data</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
+                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
+                                <span class="text-sm">White-label and co-branding opportunities</span>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
+                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
+                                <span class="text-sm">Scalable integrations across multiple countries</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card bg-gradient-to-r from-primary/10 to-secondary/10">
-                        <div class="card-body">
-                            <h3 class="text-xl font-semibold">Partnership Inquiries</h3>
-                            <p class="text-base-content/80 mt-4">
-                                Interested in retail integrations, licensing, or joint ventures? We're expanding across Europe and looking for strategic partners.
-                            </p>
-                            <div class="mt-6">
-                                <a href="mailto:hello@demandops.com">
-                                    <button class="btn btn-primary btn-lg btn-block">
-                                        <span class="iconify lucide--mail size-5"></span>
-                                        hello@demandops.com
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OUR STORY -->
-        <section class="bg-base-200 py-8 lg:py-20" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="text-3xl font-semibold sm:text-4xl">From a Single Frustration to a Scalable System</h2>
-                    <p class="text-base-content/80 mx-auto mt-4 max-w-3xl text-lg">
-                        DemandOps began with a simple realization: millions of homeowners want to improve their spaces but are paralyzed by complexity, cost, and uncertainty.
-                    </p>
-                </div>
-
-                <div class="mt-12 max-w-4xl mx-auto">
-                    <p class="text-base-content/80 text-lg leading-relaxed text-center">
-                        Our founder's experience transforming a €100,000 garden quote into €30,000 of achievable projects became the blueprint for a scalable system  -  one that transforms ideas into doable plans for everyone.
-                    </p>
-                </div>
-
-                <div class="mt-12 max-w-3xl mx-auto bg-gradient-to-r from-primary/10 to-secondary/10 rounded-box p-8 lg:p-12 border-l-4 border-primary">
-                    <p class="text-xl lg:text-2xl leading-relaxed italic">
-                        "I spent €4,000 on a garden designer and got a €100,000 quote which was way above budget. After feeling stuck and frustrated, I decided to make my own plan for the garden and break it into around 10 projects at roughly €3k each  -  completing the project in stages (typically on weekends with some local help) for around €30,000 total. That phased approach became the foundation of TuinPlan  -  the AI-powered app I wish I had at the time  -  and ultimately, DemandOps."
-                    </p>
-                </div>
-
-                <div class="mt-12 max-w-4xl mx-auto">
-                    <p class="text-base-content/80 text-lg leading-relaxed text-center">
-                        From that experience, we built a repeatable operating system  -  Demand Organisation Technology  -  that now powers an entire portfolio of home improvement products across Europe.
-                    </p>
-                </div>
-
-                <div class="mt-12 text-center">
-                    <h3 class="text-xl font-semibold">Partnerships, Press, or Collaboration Inquiries</h3>
-                    <p class="text-base-content/80 mt-4">Interested in learning more about DemandOps, our IP, or partnership opportunities? We'd love to connect.</p>
-                    <div class="mt-6">
+                    <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 lg:p-12 border border-primary/20" data-aos="fade-left">
+                        <h3 class="text-xl font-semibold mb-4">Partnership Inquiries</h3>
+                        <p class="text-base-content/70 mb-8">
+                            Interested in retail integrations, licensing, or joint ventures? We're expanding across Europe and looking for strategic partners.
+                        </p>
                         <a href="mailto:hello@demandops.com">
-                            <button class="btn btn-primary btn-lg">
+                            <button class="btn btn-primary btn-lg rounded-lg shadow-lg shadow-primary/20 w-full">
                                 <span class="iconify lucide--mail size-5"></span>
                                 hello@demandops.com
                             </button>
@@ -489,71 +526,81 @@
             </div>
         </section>
 
-        <footer class="border-base-300 border-t">
-    <div class="divide-base-300 grid divide-x lg:grid-cols-2">
-        <div class="divide-base-300 divide-y">
-            <div class="p-8 sm:p-10 md:px-16 xl:px-40 xl:py-16">
-                <div class="flex justify-between gap-8">
-                    <p class="text-xl font-medium">DemandOps</p>
-                    <p class="max-w-sm">
-                        Converting dreams and frustration into confident execution
-                    </p>
+        <!-- FOUNDER QUOTE -->
+        <section class="py-16 lg:py-24 bg-base-100 border-t border-base-300/50">
+            <div class="container">
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="relative">
+                        <span class="iconify lucide--quote absolute -top-8 -left-8 size-16 text-base-content/5 hidden md:block"></span>
+                        <blockquote class="text-center">
+                            <p class="text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-8">
+                                "I spent €4,000 on a garden design only to get a quote for €100,000. I was stuck. That frustration birthed the idea of phased, AI-planned projects."
+                            </p>
+                            <footer class="flex flex-col items-center justify-center">
+                                <div class="w-12 h-12 rounded-full bg-base-200 mb-3 overflow-hidden flex items-center justify-center text-base-content/40 font-bold">
+                                    AM
+                                </div>
+                                <div class="text-sm font-semibold">Founder</div>
+                                <div class="text-xs text-base-content/60">DemandOps</div>
+                            </footer>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="p-8 sm:p-10 md:px-16 xl:px-40 xl:py-16">
-                <div class="grid grid-cols-2 gap-6 md:grid-cols-3">
-                    <div>
-                        <h2 class="text-lg font-medium">Company</h2>
-                        <div
-                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
-                            <a href="#home">Home</a>
-                            <a href="#vision">Vision</a>
-                            <a href="#products">Products</a>
-                            <a href="#partners">Partners</a>
-                            <a href="#about">About</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-medium">Products</h2>
-                        <div
-                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
-                            <a href="mailto:hello@demandops.com">TuinPlan (Early Access)</a>
-                            <a href="#products">Category Expansion</a>
-                            <a href="#partners">Retail Partnerships</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 class="text-lg font-medium">Contact</h2>
-                        <div
-                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
-                            <a href="mailto:hello@demandops.com">hello@demandops.com</a>
-                        </div>
-                    </div>
+        <footer class="bg-base-100 border-t border-base-300/50 pt-16 pb-8">
+    <div class="container">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+            <div class="max-w-xs">
+                <div class="flex items-center gap-2 mb-4">
+                    <img src="./icon_320_320.png" alt="DemandOps" class="h-6 w-6 rounded" />
+                    <span class="font-semibold">DemandOps</span>
+                </div>
+                <p class="text-base-content/60 text-sm leading-relaxed">
+                    The operating system for home improvement. Unfreezing demand through intelligence.
+                </p>
+            </div>
+
+            <div class="flex gap-16 flex-wrap">
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Company</h4>
+                    <ul class="space-y-3 text-sm text-base-content/60">
+                        <li><a href="#vision" class="hover:text-primary transition-colors">Vision</a></li>
+                        <li><a href="#products" class="hover:text-primary transition-colors">Products</a></li>
+                        <li><a href="#technology" class="hover:text-primary transition-colors">Technology</a></li>
+                        <li><a href="mailto:hello@demandops.com" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Products</h4>
+                    <ul class="space-y-3 text-sm text-base-content/60">
+                        <li><a href="mailto:hello@demandops.com" class="hover:text-primary transition-colors">TuinPlan</a></li>
+                        <li><a href="#partners" class="hover:text-primary transition-colors">Retail API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Connect</h4>
+                    <ul class="space-y-3 text-sm text-base-content/60">
+                        <li><a href="mailto:hello@demandops.com" class="hover:text-primary transition-colors">hello@demandops.com</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="order-first lg:order-last">
-            <div class="p-8 lg:p-20">
-                <div class="badge badge-primary">Get in Touch</div>
-                <h2 class="mt-4 text-2xl font-medium sm:text-3xl">Questions or Feedback?</h2>
-                <p class="text-base-content/80 mt-4 max-w-md">
-                    We'd love to hear from you. Whether you're interested in our products, exploring collaboration, or just want to say hello.
-                </p>
-                <div class="mt-6">
-                    <a href="mailto:hello@demandops.com" class="btn btn-primary">
-                        <span class="iconify lucide--mail size-4"></span>
-                        hello@demandops.com
-                    </a>
-                </div>
+        <div class="pt-8 border-t border-base-300/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-base-content/40">
+            <p>© 2025 DemandOps. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-base-content/60 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-base-content/60 transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>
-
 </footer>
 
 
+        <!-- AOS Animation Library -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="./js/app.js"></script>
     </body>
 </html>

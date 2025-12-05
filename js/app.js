@@ -18,3 +18,13 @@ document.querySelectorAll("[data-theme-control]").forEach((control) => {
         }
     })
 })
+
+// Initialize AOS (Animate On Scroll)
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        once: true,
+        offset: 20,
+        duration: 600,
+        easing: 'ease-out-cubic',
+    })
+}
