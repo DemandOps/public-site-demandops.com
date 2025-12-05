@@ -52,6 +52,14 @@
     <div class="container">
         <nav class="flex items-center justify-between py-3">
             <div class="flex items-center gap-2">
+                <label
+                    for="menu-drawer"
+                    id="menu-drawer-trigger"
+                    aria-label="open sidebar"
+                    class="btn btn-square btn-ghost btn-sm lg:hidden">
+                    <span class="iconify lucide--menu size-5"></span>
+                </label>
+
                 <!-- Navbar Brand logo -->
                 <a href="#" class="flex items-center gap-2.5">
                     <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
@@ -76,6 +84,25 @@
             </div>
         </nav>
 
+        <!-- sm screen menu (drawer) -->
+        <div class="drawer">
+            <input id="menu-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-side">
+                <label for="menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <div class="bg-base-100 min-h-full w-60 p-5">
+                    <a href="#" class="flex items-center gap-2">
+                        <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
+                        <span class="text-xl font-semibold">DemandOps</span>
+                    </a>
+                    <ul class="menu w-full gap-2 p-0 pt-4">
+                        <li class="font-medium"><a href="#vision">Vision</a></li>
+                        <li class="font-medium"><a href="#products">Products</a></li>
+                        <li class="font-medium"><a href="#technology">Technology</a></li>
+                        <li class="font-medium"><a href="#partners">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
