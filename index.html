@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="group/html" data-theme="light">
+<html lang="en" class="scroll-smooth">
     <head>
         <meta charset="utf-8" />
 <title>DemandOps - AI-Powered Operating System for Home Improvement</title>
@@ -24,343 +24,222 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="./site.webmanifest" />
 
-<!-- AOS Animation Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-<!-- Google Fonts (Inter for headings) -->
+<!-- Google Fonts (Inter) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<script src="https://cdn.jsdelivr.net/npm/card3d@2.6.5/dist/card3d.min.js"></script>
 
+      <script type="module" src="./assets/index.js"></script>
       <link rel="stylesheet" href="./assets/index.css">
     </head>
 
-    <body class="relative">
-        <!-- Ambient Background -->
-        <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-            <div class="absolute inset-0 bg-base-100"></div>
-            <div class="absolute top-0 left-0 right-0 h-[80vh] bg-grid-pattern"></div>
-            <div class="ambient-blob ambient-blob-primary absolute -top-[20%] -right-[10%] w-[600px] h-[600px]"></div>
-            <div class="ambient-blob ambient-blob-secondary absolute top-[20%] -left-[10%] w-[500px] h-[500px]"></div>
+    <body class="bg-stone-100 text-stone-900 antialiased overflow-x-hidden">
+        <nav class="fixed top-0 left-0 w-full z-50 border-b border-stone-200 bg-white">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5">
+            <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8 rounded" />
+            <span class="font-semibold tracking-tighter text-lg text-stone-900">Demand<span class="text-stone-400">Ops</span></span>
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-stone-500">
+            <a href="#vision" class="hover:text-stone-900 transition-colors">Vision</a>
+            <a href="#technology" class="hover:text-stone-900 transition-colors">Technology</a>
+            <a href="#products" class="hover:text-stone-900 transition-colors">Products</a>
+            <a href="#partners" class="hover:text-stone-900 transition-colors">Partners</a>
         </div>
-
-        <div
-    id="layout-topbar"
-    class="glass-nav sticky top-0 z-50 border-b border-base-300/50 data-[at-top=true]:border-transparent transition-all duration-300">
-    <div class="container">
-        <nav class="flex items-center justify-between py-3">
-            <div class="flex items-center gap-2">
-                <label
-                    for="menu-drawer"
-                    id="menu-drawer-trigger"
-                    aria-label="open sidebar"
-                    class="btn btn-square btn-ghost btn-sm lg:hidden">
-                    <span class="iconify lucide--menu size-5"></span>
-                </label>
-
-                <!-- Navbar Brand logo -->
-                <a href="#" class="flex items-center gap-2.5">
-                    <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
-                    <span class="text-lg font-semibold tracking-tight">DemandOps</span>
-                </a>
-            </div>
-
-            <div class="max-lg:hidden">
-                <ul class="flex items-center gap-8 text-sm font-medium text-base-content/60">
-                    <li><a href="#vision" class="hover:text-base-content transition-colors">Vision</a></li>
-                    <li><a href="#products" class="hover:text-base-content transition-colors">Products</a></li>
-                    <li><a href="#technology" class="hover:text-base-content transition-colors">Technology</a></li>
-                    <li><a href="#partners" class="hover:text-base-content transition-colors">Partners</a></li>
-                </ul>
-            </div>
-
-            <div class="space-x-2">
-                <a href="mailto:hello@demandops.com" class="group btn btn-primary btn-sm rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-                    <span>Contact</span>
-                    <span class="iconify lucide--arrow-right size-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></span>
-                </a>
-            </div>
-        </nav>
-
-        <!-- sm screen menu (drawer) -->
-        <div class="drawer">
-            <input id="menu-drawer" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-side">
-                <label for="menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-                <div class="bg-base-100 min-h-full w-60 p-5">
-                    <a href="#" class="flex items-center gap-2">
-                        <img src="./icon_320_320.png" alt="DemandOps" class="h-8 w-8" />
-                        <span class="text-xl font-semibold">DemandOps</span>
-                    </a>
-                    <ul class="menu w-full gap-2 p-0 pt-4">
-                        <li class="font-medium"><a href="#vision">Vision</a></li>
-                        <li class="font-medium"><a href="#products">Products</a></li>
-                        <li class="font-medium"><a href="#technology">Technology</a></li>
-                        <li class="font-medium"><a href="#partners">Partners</a></li>
-                    </ul>
-                </div>
-            </div>
+        <a href="mailto:hello@demandops.com" class="hidden md:flex items-center gap-2 text-xs font-semibold uppercase tracking-wide border border-stone-300 px-4 py-2 rounded-sm hover:border-stone-400 hover:bg-stone-50 transition-all bg-white">
+            Contact
+            <span class="iconify lucide--arrow-right size-3.5"></span>
+        </a>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-600 hover:text-stone-900">
+            <span class="iconify lucide--menu size-6"></span>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-stone-50">
+        <div class="px-6 py-4 space-y-3">
+            <a href="#vision" class="block text-sm font-medium text-stone-600 hover:text-stone-900">Vision</a>
+            <a href="#technology" class="block text-sm font-medium text-stone-600 hover:text-stone-900">Technology</a>
+            <a href="#products" class="block text-sm font-medium text-stone-600 hover:text-stone-900">Products</a>
+            <a href="#partners" class="block text-sm font-medium text-stone-600 hover:text-stone-900">Partners</a>
+            <a href="mailto:hello@demandops.com" class="inline-block mt-2 text-xs font-semibold uppercase tracking-wide border border-stone-300 px-4 py-2 rounded-sm bg-white">Contact</a>
         </div>
     </div>
-</div>
-
+</nav>
 
 
         <!-- HERO SECTION -->
-        <section class="relative pt-24 pb-12 lg:pt-40 lg:pb-24 overflow-hidden" id="home">
-            <div class="container">
-                <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-                    <div class="max-lg:order-2" data-aos="fade-up" data-aos-duration="1000">
-                        <!-- Status Badge -->
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
-                            <span class="relative flex h-2 w-2">
-                                <span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                            </span>
-                            Unfreezing €71B in Demand
-                        </div>
+        <header class="relative w-full min-h-[90vh] flex items-center overflow-hidden" id="home">
+            <!-- WEBGL CANVAS -->
+            <canvas id="hero-canvas" class="absolute inset-0 w-full h-full block bg-stone-100 z-0"></canvas>
 
-                        <h1 class="text-4xl font-semibold tracking-tight lg:text-6xl lg:leading-[1.1]">
-                            The Operating System for
-                            <span class="text-gradient-primary">Home Improvement</span>
-                        </h1>
-                        <p class="text-base-content/70 mt-6 text-lg lg:text-xl leading-relaxed max-w-xl">
-                            We build and operate the intelligent layer that sits between homeowner dreams and retail execution. Powered by proprietary Demand Organisation Technology.
-                        </p>
-                        <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-12">
-                            <a href="#products">
-                                <button class="btn btn-primary btn-lg rounded-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
-                                    Explore Portfolio
-                                </button>
-                            </a>
-                            <a href="mailto:hello@demandops.com">
-                                <button class="btn btn-ghost btn-lg rounded-lg border border-base-300 hover:bg-base-200 transition-all group">
-                                    Partner With Us
-                                    <span class="iconify lucide--arrow-up-right size-4 text-base-content/40 group-hover:text-base-content transition-colors"></span>
-                                </button>
-                            </a>
-                        </div>
+            <!-- GLOBAL SCRIM -->
+            <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-stone-100/90 via-stone-100/50 to-transparent"></div>
 
-                        <!-- Mini Stats -->
-                        <div class="mt-12 pt-8 border-t border-base-300 flex items-center gap-8" data-aos="fade-up" data-aos-delay="200">
-                            <div>
-                                <p class="text-2xl font-semibold tracking-tight">€71B</p>
-                                <p class="text-xs text-base-content/50 font-medium uppercase tracking-wide mt-1">Market Opportunity</p>
-                            </div>
-                            <div class="w-px h-8 bg-base-300"></div>
-                            <div>
-                                <p class="text-2xl font-semibold tracking-tight">20min</p>
-                                <p class="text-xs text-base-content/50 font-medium uppercase tracking-wide mt-1">Idea to Plan</p>
-                            </div>
+            <!-- CONTENT CONTAINER -->
+            <div class="relative z-20 w-full max-w-7xl mx-auto px-6 pt-24 pb-12 lg:pt-32 h-full flex flex-col justify-center pointer-events-none">
+                <!-- DRAFTING SHEET PANEL -->
+                <div class="pointer-events-auto bg-stone-50/95 backdrop-blur-[2px] border border-stone-200 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-8 md:p-10 rounded-sm max-w-[640px] w-full relative">
+                    <!-- Status Badge -->
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-demand-green opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-demand-green"></span>
+                        </span>
+                        <span class="text-xs font-medium uppercase tracking-widest text-stone-500">Unfreezing €71B in Demand</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-stone-900 leading-[1.1] mb-6">
+                        The Operating System for Home Improvement
+                    </h1>
+
+                    <p class="text-base md:text-lg text-stone-600 leading-relaxed mb-8 max-w-lg">
+                        We build and operate the intelligent layer that sits between homeowner dreams and retail execution. Powered by proprietary Demand Organisation Technology.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#products">
+                            <button class="group flex items-center justify-center gap-2 bg-stone-900 text-stone-50 hover:bg-stone-800 px-6 py-3.5 rounded-sm transition-all shadow-sm w-full sm:w-auto">
+                                <span class="text-sm font-medium">Explore Portfolio</span>
+                                <span class="iconify lucide--arrow-right size-4.5"></span>
+                            </button>
+                        </a>
+                        <a href="mailto:hello@demandops.com">
+                            <button class="group flex items-center justify-center gap-2 bg-white border border-stone-300 text-stone-700 hover:border-stone-400 hover:bg-stone-50 px-6 py-3.5 rounded-sm transition-all w-full sm:w-auto">
+                                <span class="text-sm font-medium">Partner With Us</span>
+                                <span class="iconify lucide--arrow-up-right size-4.5 text-stone-400 group-hover:text-stone-600 transition-colors"></span>
+                            </button>
+                        </a>
+                    </div>
+
+                    <!-- Mini Stats -->
+                    <div class="mt-10 pt-8 border-t border-stone-200 flex items-center gap-8">
+                        <div>
+                            <p class="text-2xl font-semibold tracking-tight text-stone-900">€71B</p>
+                            <p class="text-xs text-stone-500 font-medium uppercase tracking-wide mt-1">Market Opportunity</p>
+                        </div>
+                        <div class="w-px h-10 bg-stone-200"></div>
+                        <div>
+                            <p class="text-2xl font-semibold tracking-tight text-stone-900">20min</p>
+                            <p class="text-xs text-stone-500 font-medium uppercase tracking-wide mt-1">Idea to Plan</p>
                         </div>
                     </div>
 
-                    <!-- Right Visual (Abstract UI) -->
-                    <div class="relative w-full h-full min-h-[400px] flex items-center justify-center max-lg:order-1 max-lg:hidden" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
-                        <!-- Background Decoration -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-
-                        <!-- Main UI Card -->
-                        <div class="relative w-full max-w-md bg-base-100 rounded-2xl shadow-2xl shadow-base-content/10 border border-base-300/60 overflow-hidden animate-float z-20">
-                            <!-- Header -->
-                            <div class="h-10 border-b border-base-300 bg-base-200/50 flex items-center px-4 gap-2">
-                                <div class="flex gap-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-base-300"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-base-300"></div>
-                                </div>
-                            </div>
-                            <!-- Content -->
-                            <div class="p-6">
-                                <div class="flex items-center justify-between mb-6">
-                                    <div class="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                        <span class="iconify lucide--sparkles size-4"></span>
-                                    </div>
-                                    <div class="px-2 py-1 rounded bg-success/10 text-success text-[10px] font-bold uppercase tracking-wide">
-                                        Analysis Complete
-                                    </div>
-                                </div>
-                                <!-- Mock Data Lines -->
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded bg-base-200 border border-base-300 flex items-center justify-center shrink-0">
-                                            <span class="iconify lucide--scan-line size-4 text-base-content/40"></span>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="h-2 w-24 bg-base-300 rounded mb-1.5"></div>
-                                            <div class="h-1.5 w-16 bg-base-200 rounded"></div>
-                                        </div>
-                                        <div class="text-xs font-mono text-base-content/40">98%</div>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded bg-base-200 border border-base-300 flex items-center justify-center shrink-0">
-                                            <span class="iconify lucide--shopping-cart size-4 text-base-content/40"></span>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="h-2 w-32 bg-base-300 rounded mb-1.5"></div>
-                                            <div class="h-1.5 w-20 bg-base-200 rounded"></div>
-                                        </div>
-                                        <div class="text-xs font-mono text-base-content/40">Ready</div>
-                                    </div>
-                                </div>
-                                <!-- Action Button Mock -->
-                                <div class="mt-6 h-9 w-full bg-primary rounded flex items-center justify-center text-primary-content text-xs font-medium">
-                                    Generate Project Plan
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Floating Card 1 -->
-                        <div class="absolute -right-4 bottom-12 w-48 p-4 glass-panel rounded-xl shadow-xl border border-base-300/50 z-30 animate-float" style="animation-delay: 1s;">
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 rounded-full bg-warning/10 flex items-center justify-center text-warning">
-                                    <span class="iconify lucide--ruler size-4"></span>
-                                </div>
-                                <div class="text-xs font-medium">Dimensions</div>
-                            </div>
-                            <div class="w-full bg-base-300 rounded-full h-1.5 mb-1">
-                                <div class="bg-warning h-1.5 rounded-full" style="width: 70%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Floating Card 2 -->
-                        <div class="absolute -left-4 top-20 w-48 p-4 glass-panel rounded-xl shadow-xl border border-base-300/50 z-10 animate-float" style="animation-delay: 2s;">
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                                    <span class="iconify lucide--layers size-4"></span>
-                                </div>
-                                <div class="text-xs font-medium">Materials</div>
-                            </div>
-                            <div class="flex -space-x-2">
-                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-300"></div>
-                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-content/30"></div>
-                                <div class="w-6 h-6 rounded-full border-2 border-base-100 bg-base-content/50"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Corner Decorations -->
+                    <div class="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-stone-300"></div>
+                    <div class="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-stone-300"></div>
+                    <div class="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-stone-300"></div>
+                    <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-stone-300"></div>
                 </div>
             </div>
-        </section>
+        </header>
 
         <!-- FOUNDATION SECTION -->
-        <section class="py-16 lg:py-24 bg-base-100 border-y border-base-300/50" id="vision">
-            <div class="container">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-8" data-aos="fade-up">
-                    <div class="max-w-2xl">
-                        <h2 class="text-3xl font-semibold tracking-tight mb-4">
-                            One Foundation. <span class="text-base-content/40">Infinite Applications.</span>
+        <section class="py-20 lg:py-28 bg-white border-t border-stone-200" id="vision">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900 mb-6">
+                            One Foundation.<br><span class="text-stone-400">Infinite Applications.</span>
                         </h2>
-                        <p class="text-lg text-base-content/70 leading-relaxed">
+                        <p class="text-stone-600 leading-relaxed text-lg">
                             At the core of every DemandOps product is a unified technology stack. We don't just build apps; we build a scalable engine for home improvement demand.
                         </p>
                     </div>
-                    <div class="hidden md:block">
-                        <span class="iconify lucide--cpu size-12 text-base-content/10"></span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-secondary shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="iconify lucide--network size-5"></span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="group border border-stone-200 p-6 rounded-sm bg-stone-50 hover:border-demand-green transition-colors">
+                            <span class="iconify lucide--network text-stone-400 group-hover:text-demand-green mb-4 size-6 transition-colors"></span>
+                            <h3 class="text-sm font-semibold text-stone-900 mb-2">Unified Platform</h3>
+                            <p class="text-xs text-stone-500 leading-relaxed">Proprietary AI methods and product intelligence built on a single core.</p>
                         </div>
-                        <h3 class="text-base font-semibold mb-2">Unified Platform</h3>
-                        <p class="text-sm text-base-content/60 leading-relaxed">Proprietary AI methods and product intelligence built on a single core.</p>
-                    </div>
-
-                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-primary shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="iconify lucide--globe-2 size-5"></span>
+                        <div class="group border border-stone-200 p-6 rounded-sm bg-stone-50 hover:border-demand-green transition-colors">
+                            <span class="iconify lucide--globe-2 text-stone-400 group-hover:text-demand-green mb-4 size-6 transition-colors"></span>
+                            <h3 class="text-sm font-semibold text-stone-900 mb-2">Local Context</h3>
+                            <p class="text-xs text-stone-500 leading-relaxed">Tailored specifically to country regulations, catalogs, and cultures.</p>
                         </div>
-                        <h3 class="text-base font-semibold mb-2">Local Context</h3>
-                        <p class="text-sm text-base-content/60 leading-relaxed">Tailored specifically to country regulations, catalogs, and cultures.</p>
-                    </div>
-
-                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-error shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="iconify lucide--trending-up size-5"></span>
+                        <div class="group border border-stone-200 p-6 rounded-sm bg-stone-50 hover:border-demand-green transition-colors">
+                            <span class="iconify lucide--trending-up text-stone-400 group-hover:text-demand-green mb-4 size-6 transition-colors"></span>
+                            <h3 class="text-sm font-semibold text-stone-900 mb-2">Scalable System</h3>
+                            <p class="text-xs text-stone-500 leading-relaxed">One engine powers multiple consumer-facing apps, creating network effects.</p>
                         </div>
-                        <h3 class="text-base font-semibold mb-2">Scalable System</h3>
-                        <p class="text-sm text-base-content/60 leading-relaxed">One engine powers multiple consumer-facing apps, creating network effects.</p>
-                    </div>
-
-                    <div class="group p-6 rounded-2xl bg-base-200/50 hover:bg-base-100 border border-base-300/50 hover:border-base-300 transition-all duration-300 hover:shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-10 h-10 rounded-lg bg-base-100 border border-base-300 flex items-center justify-center mb-4 text-success shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="iconify lucide--check-circle-2 size-5"></span>
+                        <div class="group border border-stone-200 p-6 rounded-sm bg-stone-50 hover:border-demand-green transition-colors">
+                            <span class="iconify lucide--check-circle-2 text-stone-400 group-hover:text-demand-green mb-4 size-6 transition-colors"></span>
+                            <h3 class="text-sm font-semibold text-stone-900 mb-2">Proven Model</h3>
+                            <p class="text-xs text-stone-500 leading-relaxed">Launching via TuinPlan, our first vertical in intelligent garden planning.</p>
                         </div>
-                        <h3 class="text-base font-semibold mb-2">Proven Model</h3>
-                        <p class="text-sm text-base-content/60 leading-relaxed">Launching via TuinPlan, our first vertical in intelligent garden planning.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DEEP TECH SECTION -->
-        <section class="py-16 lg:py-24 bg-neutral text-neutral-content relative overflow-hidden" id="technology">
-            <!-- Abstract Background -->
-            <div class="absolute inset-0 opacity-20 pointer-events-none">
-                <div class="absolute right-0 top-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"></div>
-                <div class="absolute left-0 bottom-0 w-[500px] h-[500px] bg-secondary rounded-full blur-[120px]"></div>
-            </div>
-
-            <div class="container relative z-10">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    <div class="lg:sticky lg:top-24" data-aos="fade-right">
-                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
-                            The Demand Organisation <br>
-                            <span class="text-primary">Technology Stack</span>
+        <!-- TECHNOLOGY STACK -->
+        <section class="py-20 lg:py-28 bg-stone-100 border-t border-stone-200" id="technology">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    <!-- Left Column -->
+                    <div class="lg:sticky lg:top-24">
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900 mb-6">
+                            The Demand Organisation<br>
+                            <span class="text-demand-green">Technology Stack</span>
                         </h2>
-                        <p class="text-neutral-content/60 text-lg leading-relaxed mb-8">
+                        <p class="text-stone-600 text-lg leading-relaxed mb-8">
                             Unlike generic AI tools, our system combines multiple data sources with deterministic guardrails. The result: dramatically higher accuracy and contractor-ready output that actually converts.
                         </p>
 
-                        <div class="flex flex-col gap-4">
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
-                                <span class="iconify lucide--shield-check size-6 text-primary"></span>
-                                <span class="font-medium text-neutral-content/90">Deterministic Guardrails</span>
+                        <!-- Numbered Steps -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="group bg-white p-4 border border-stone-200 rounded-sm hover:border-demand-green transition-colors">
+                                <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 mb-3 text-xs font-mono group-hover:bg-demand-green/10 group-hover:text-demand-green transition-colors">01</div>
+                                <h4 class="font-medium text-stone-900 text-xs">Deterministic Guardrails</h4>
                             </div>
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
-                                <span class="iconify lucide--package-check size-6 text-secondary"></span>
-                                <span class="font-medium text-neutral-content/90">Purchasable Product Lists</span>
+                            <div class="group bg-white p-4 border border-stone-200 rounded-sm hover:border-demand-green transition-colors">
+                                <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 mb-3 text-xs font-mono group-hover:bg-demand-green/10 group-hover:text-demand-green transition-colors">02</div>
+                                <h4 class="font-medium text-stone-900 text-xs">Purchasable Product Lists</h4>
                             </div>
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-content/5 border border-neutral-content/10 backdrop-blur-sm">
-                                <span class="iconify lucide--git-merge size-6 text-success"></span>
-                                <span class="font-medium text-neutral-content/90">Phased Project Plans</span>
+                            <div class="group bg-white p-4 border border-stone-200 rounded-sm hover:border-demand-green transition-colors">
+                                <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 mb-3 text-xs font-mono group-hover:bg-demand-green/10 group-hover:text-demand-green transition-colors">03</div>
+                                <h4 class="font-medium text-stone-900 text-xs">Phased Project Plans</h4>
+                            </div>
+                            <div class="group bg-white p-4 border border-stone-200 rounded-sm hover:border-demand-green transition-colors">
+                                <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 mb-3 text-xs font-mono group-hover:bg-demand-green/10 group-hover:text-demand-green transition-colors">04</div>
+                                <h4 class="font-medium text-stone-900 text-xs">Contractor-Ready Output</h4>
+                            </div>
+                            <div class="group bg-white p-4 border border-stone-200 rounded-sm hover:border-demand-green transition-colors">
+                                <div class="w-7 h-7 rounded-full bg-demand-green/10 flex items-center justify-center text-demand-green mb-3 text-xs font-mono">05</div>
+                                <h4 class="font-medium text-stone-900 text-xs">Vision + Actionable Steps</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="grid gap-6" data-aos="fade-left">
-                        <!-- Tech Card 1 -->
-                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
-                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-                                <span class="iconify lucide--shield-check size-6 text-primary"></span>
+                    <!-- Right Column - Tech Cards -->
+                    <div class="grid gap-4">
+                        <div class="p-8 bg-white border border-stone-200 rounded-sm hover:border-stone-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-demand-green/10 flex items-center justify-center mb-5">
+                                <span class="iconify lucide--shield-check text-demand-green size-5"></span>
                             </div>
-                            <h3 class="text-xl font-medium mb-3">Ground Truth Validation</h3>
-                            <p class="text-neutral-content/60 leading-relaxed">
+                            <h3 class="text-lg font-semibold text-stone-900 mb-3">Ground Truth Validation</h3>
+                            <p class="text-stone-600 leading-relaxed text-sm">
                                 AI outputs are validated against real-world data sources, not just generated. This eliminates hallucinations and produces plans you can actually execute.
                             </p>
                         </div>
 
-                        <!-- Tech Card 2 -->
-                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
-                            <div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
-                                <span class="iconify lucide--shopping-cart size-6 text-secondary"></span>
+                        <div class="p-8 bg-white border border-stone-200 rounded-sm hover:border-stone-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-5">
+                                <span class="iconify lucide--shopping-cart text-stone-600 size-5"></span>
                             </div>
-                            <h3 class="text-xl font-medium mb-3">Contractor-Ready Output</h3>
-                            <p class="text-neutral-content/60 leading-relaxed">
+                            <h3 class="text-lg font-semibold text-stone-900 mb-3">Contractor-Ready Output</h3>
+                            <p class="text-stone-600 leading-relaxed text-sm">
                                 Every plan includes real products, exact quantities, and step-by-step instructions. Ready to purchase, ready to build.
                             </p>
                         </div>
 
-                        <!-- Tech Card 3 -->
-                        <div class="p-8 rounded-2xl bg-neutral-content/5 border border-neutral-content/10 hover:bg-neutral-content/10 transition-colors">
-                            <div class="w-12 h-12 rounded-full bg-warning/20 flex items-center justify-center mb-6">
-                                <span class="iconify lucide--git-merge size-6 text-warning"></span>
+                        <div class="p-8 bg-white border border-stone-200 rounded-sm hover:border-stone-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center mb-5">
+                                <span class="iconify lucide--git-merge text-stone-600 size-5"></span>
                             </div>
-                            <h3 class="text-xl font-medium mb-3">Vision + Affordable Next Steps</h3>
-                            <p class="text-neutral-content/60 leading-relaxed">
+                            <h3 class="text-lg font-semibold text-stone-900 mb-3">Vision + Affordable Next Steps</h3>
+                            <p class="text-stone-600 leading-relaxed text-sm">
                                 See the complete transformation, then tackle it in manageable phases. One clear vision, multiple affordable projects that unfreeze action.
                             </p>
                         </div>
@@ -369,222 +248,211 @@
             </div>
         </section>
 
-        <!-- PRODUCT PORTFOLIO (Bento Grid) -->
-        <section class="py-24 lg:py-32 bg-base-200/50 relative" id="products">
-            <div class="container">
-                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl font-semibold tracking-tight mb-4">Product Portfolio</h2>
-                    <p class="text-base-content/60 text-lg">Consumer-ready experiences that capture homeowner desires early.</p>
+        <!-- PRODUCT PORTFOLIO -->
+        <section class="py-20 lg:py-28 bg-white border-t border-stone-200" id="products">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900 mb-4">Product Portfolio</h2>
+                        <p class="text-stone-600 text-lg">Consumer-ready experiences that capture homeowner desires early.</p>
+                    </div>
                 </div>
 
-                <div class="grid lg:grid-cols-3 gap-6 auto-rows-[minmax(350px,auto)]">
-
-                    <!-- TuinPlan (Featured) -->
-                    <div class="lg:col-span-2 relative group overflow-hidden rounded-3xl bg-base-100 border border-base-300/50 shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up">
-                        <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
-                            <span class="iconify lucide--flower-2 size-64 text-success"></span>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- TuinPlan -->
+                    <div class="sm:col-span-2 p-8 bg-stone-50 border border-stone-200 rounded-sm relative overflow-hidden group hover:border-demand-green transition-colors">
+                        <div class="absolute top-4 right-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-demand-green/10 text-demand-green text-[10px] font-semibold uppercase tracking-wider">
+                                Launching 2026
+                            </span>
                         </div>
-
-                        <div class="relative h-full p-8 lg:p-10 flex flex-col justify-between z-10">
-                            <div>
-                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold uppercase tracking-wider mb-6">
-                                    Launching 2026
-                                </div>
-                                <h3 class="text-3xl font-semibold mb-2">TuinPlan</h3>
-                                <p class="text-base-content/60 text-lg max-w-md">The intelligent garden planner. From photo to planting list in minutes.</p>
-                            </div>
-
-                            <div class="mt-8 lg:mt-12 bg-base-200/50 rounded-2xl p-6 border border-base-300/50 max-w-md">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-base-100 flex items-center justify-center border border-base-300 shrink-0">
-                                        <span class="iconify lucide--check size-5 text-success"></span>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-sm">First Vertical</h4>
-                                        <p class="text-xs text-base-content/60 mt-1 leading-relaxed">Applying DemandOps tech to garden renovations. Generates shopping lists for retail partners.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a href="https://tuinplan.app/" class="mt-6 inline-flex">
-                                <button class="btn btn-primary rounded-lg shadow-lg shadow-primary/20">
-                                    <span class="iconify lucide--arrow-right size-4"></span>
-                                    Visit TuinPlan
-                                </button>
-                            </a>
+                        <div class="mb-6">
+                            <span class="iconify lucide--flower-2 text-demand-green size-8 mb-4"></span>
+                            <h3 class="text-2xl font-semibold text-stone-900 mb-2">TuinPlan</h3>
+                            <p class="text-stone-600 text-sm leading-relaxed max-w-sm">The intelligent garden planner. From photo to planting list in minutes. Applying DemandOps tech to garden renovations.</p>
                         </div>
+                        <a href="https://tuinplan.app/" class="inline-flex items-center gap-2 text-sm font-medium text-stone-900 hover:text-demand-green transition-colors group/link">
+                            Visit TuinPlan
+                            <span class="iconify lucide--arrow-right size-4 group-hover/link:translate-x-1 transition-transform"></span>
+                        </a>
                     </div>
 
-                    <!-- Expansion -->
-                    <div class="lg:col-span-1 relative group overflow-hidden rounded-3xl bg-neutral text-neutral-content border border-neutral shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 pointer-events-none"></div>
-
-                        <div class="relative h-full p-8 lg:p-10 flex flex-col">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-content/10 flex items-center justify-center mb-6 backdrop-blur-md border border-neutral-content/10">
-                                <span class="iconify lucide--layers size-6 text-secondary"></span>
-                            </div>
-                            <h3 class="text-2xl font-semibold mb-2">Future Verticals</h3>
-                            <p class="text-neutral-content/60 text-sm leading-relaxed">
-                                The same engine applied to additional home improvement categories across Europe.
-                            </p>
+                    <!-- Geo Expansion -->
+                    <div class="p-8 bg-stone-50 border border-stone-200 rounded-sm h-full flex flex-col">
+                        <div class="mb-6">
+                            <span class="iconify lucide--map text-stone-400 size-8 mb-4"></span>
+                            <h3 class="text-lg font-semibold text-stone-900 mb-2">Geo Expansion</h3>
+                            <p class="text-stone-500 text-sm leading-relaxed">Localized versions adapted to regional retailer ecosystems and languages.</p>
                         </div>
+                        <div class="mt-auto w-full h-px bg-stone-200"></div>
                     </div>
 
-                    <!-- Geography -->
-                    <div class="lg:col-span-1 relative group overflow-hidden rounded-3xl bg-base-100 border border-base-300/50 shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
-                        <div class="relative h-full p-8 lg:p-10 flex flex-col">
-                            <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
-                                <span class="iconify lucide--map size-6 text-primary"></span>
-                            </div>
-                            <h3 class="text-2xl font-semibold mb-2">Geo Expansion</h3>
-                            <p class="text-base-content/60 text-sm leading-relaxed mb-8">
-                                Localized versions adapted to regional retailer ecosystems and languages.
-                            </p>
+                    <!-- Future Verticals -->
+                    <div class="p-8 bg-stone-900 text-stone-100 rounded-sm h-full flex flex-col">
+                        <div class="mb-6">
+                            <span class="iconify lucide--layers text-stone-500 size-8 mb-4"></span>
+                            <h3 class="text-lg font-semibold text-stone-100 mb-2">Future Verticals</h3>
+                            <p class="text-stone-400 text-sm leading-relaxed">The same engine applied to additional home improvement categories across Europe.</p>
                         </div>
+                        <div class="mt-auto w-full h-px bg-stone-700"></div>
                     </div>
+                </div>
 
-                    <!-- Partners CTA -->
-                    <div class="lg:col-span-2 relative group overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary text-primary-content shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-base-100/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-                        <div class="relative h-full p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-2">Retail Partnerships</h3>
-                                <p class="text-primary-content/80 text-sm max-w-sm">
-                                    Integrate our demand engine. Receive qualified, structured orders ready for transaction.
-                                </p>
-                            </div>
-                            <a href="mailto:hello@demandops.com">
-                                <button class="shrink-0 btn bg-base-100 text-primary hover:bg-base-200 border-0 rounded-xl shadow-xl">
-                                    Become a Partner
-                                </button>
-                            </a>
-                        </div>
+                <!-- Retail Partnerships CTA -->
+                <div class="mt-4 p-8 md:p-10 bg-stone-900 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-stone-100 mb-2">Retail Partnerships</h3>
+                        <p class="text-stone-400 text-sm max-w-md">
+                            Integrate our demand engine. Receive qualified, structured orders ready for transaction.
+                        </p>
                     </div>
+                    <a href="mailto:hello@demandops.com">
+                        <button class="shrink-0 flex items-center gap-2 bg-white text-stone-900 hover:bg-stone-100 px-6 py-3 rounded-sm transition-colors font-medium text-sm">
+                            Become a Partner
+                            <span class="iconify lucide--arrow-right size-4"></span>
+                        </button>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- FOR PARTNERS -->
-        <section class="py-16 lg:py-24" id="partners">
-            <div class="container">
-                <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-                    <div data-aos="fade-right">
-                        <h2 class="text-3xl font-semibold tracking-tight mb-6">For Retail & Industry Partners</h2>
-                        <p class="text-base-content/70 text-lg leading-relaxed mb-8">
+        <section class="py-20 lg:py-28 bg-stone-100 border-t border-stone-200" id="partners">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-stone-900 mb-6">For Retail & Industry Partners</h2>
+                        <p class="text-stone-600 text-lg leading-relaxed mb-8">
                             Our products reach homeowners at the critical "I'm ready, but don't know how" moment - before paralysis kills momentum.
                         </p>
 
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
-                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
-                                <span class="text-sm">Qualified, structured demand ready to transact</span>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-4 p-4 bg-white border border-stone-200 rounded-sm">
+                                <span class="iconify lucide--check-circle text-demand-green flex-shrink-0 mt-0.5 size-5"></span>
+                                <span class="text-sm text-stone-700">Qualified, structured demand ready to transact</span>
                             </div>
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
-                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
-                                <span class="text-sm">Category intelligence and early homeowner desire data</span>
+                            <div class="flex items-start gap-4 p-4 bg-white border border-stone-200 rounded-sm">
+                                <span class="iconify lucide--check-circle text-demand-green flex-shrink-0 mt-0.5 size-5"></span>
+                                <span class="text-sm text-stone-700">Category intelligence and early homeowner desire data</span>
                             </div>
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
-                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
-                                <span class="text-sm">White-label and co-branding opportunities</span>
+                            <div class="flex items-start gap-4 p-4 bg-white border border-stone-200 rounded-sm">
+                                <span class="iconify lucide--check-circle text-demand-green flex-shrink-0 mt-0.5 size-5"></span>
+                                <span class="text-sm text-stone-700">White-label and co-branding opportunities</span>
                             </div>
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-base-200/50 border border-base-300/50">
-                                <span class="iconify lucide--check-circle size-5 text-success flex-shrink-0 mt-0.5"></span>
-                                <span class="text-sm">Scalable integrations across multiple countries</span>
+                            <div class="flex items-start gap-4 p-4 bg-white border border-stone-200 rounded-sm">
+                                <span class="iconify lucide--check-circle text-demand-green flex-shrink-0 mt-0.5 size-5"></span>
+                                <span class="text-sm text-stone-700">Scalable integrations across multiple countries</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 lg:p-12 border border-primary/20" data-aos="fade-left">
-                        <h3 class="text-xl font-semibold mb-4">Partnership Inquiries</h3>
-                        <p class="text-base-content/70 mb-8">
+                    <div class="bg-white border border-stone-200 rounded-sm p-8 lg:p-10 relative">
+                        <h3 class="text-xl font-semibold text-stone-900 mb-4">Partnership Inquiries</h3>
+                        <p class="text-stone-600 mb-8 leading-relaxed">
                             Interested in retail integrations, licensing, or joint ventures? We're expanding across Europe and looking for strategic partners.
                         </p>
                         <a href="mailto:hello@demandops.com">
-                            <button class="btn btn-primary btn-lg rounded-lg shadow-lg shadow-primary/20 w-full">
-                                <span class="iconify lucide--mail size-5"></span>
+                            <button class="w-full flex items-center justify-center gap-2 bg-stone-900 text-stone-50 hover:bg-stone-800 px-6 py-4 rounded-sm transition-all font-medium">
+                                <span class="iconify lucide--mail size-4.5"></span>
                                 hello@demandops.com
                             </button>
                         </a>
+
+                        <!-- Corner Decorations -->
+                        <div class="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-stone-300"></div>
+                        <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-stone-300"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FOUNDER QUOTE -->
-        <section class="py-16 lg:py-24 bg-base-100 border-t border-base-300/50">
-            <div class="container">
-                <div class="max-w-4xl mx-auto" data-aos="fade-up">
-                    <div class="relative">
-                        <span class="iconify lucide--quote absolute -top-8 -left-8 size-16 text-base-content/5 hidden md:block"></span>
-                        <blockquote class="text-center">
-                            <p class="text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-8">
-                                "I spent €4,000 on a garden design only to get a quote for €100,000. I was stuck. That frustration sparked the idea of phased, AI-planned projects."
-                            </p>
-                            <footer class="flex flex-col items-center justify-center">
-                                <div class="w-12 h-12 rounded-full bg-base-200 mb-3 overflow-hidden flex items-center justify-center text-base-content/40 font-bold">
-                                    AM
-                                </div>
-                                <div class="text-sm font-semibold">Founder</div>
-                                <div class="text-xs text-base-content/60">DemandOps</div>
-                            </footer>
-                        </blockquote>
-                    </div>
+        <section class="py-20 lg:py-28 bg-white border-t border-stone-200">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="relative">
+                    <span class="iconify lucide--quote absolute -top-6 -left-4 size-16 text-stone-100 hidden md:block"></span>
+                    <blockquote class="text-center relative z-10">
+                        <p class="text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight text-stone-900 mb-8">
+                            "I spent €4,000 on a garden design only to get a quote for €100,000. I was stuck. That frustration sparked the idea of phased, AI-planned projects."
+                        </p>
+                        <footer class="flex flex-col items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-stone-200 mb-3 overflow-hidden flex items-center justify-center text-stone-500 font-semibold text-sm">
+                                AM
+                            </div>
+                            <div class="text-sm font-semibold text-stone-900">Founder</div>
+                            <div class="text-xs text-stone-500">DemandOps</div>
+                        </footer>
+                    </blockquote>
                 </div>
             </div>
         </section>
 
-        <footer class="bg-base-100 border-t border-base-300/50 pt-16 pb-8">
-    <div class="container">
+        <footer class="bg-stone-900 text-stone-400 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
             <div class="max-w-xs">
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="./icon_320_320.png" alt="DemandOps" class="h-6 w-6 rounded" />
-                    <span class="font-semibold">DemandOps</span>
+                    <img src="./icon_320_320.png" alt="DemandOps" class="h-6 w-6 rounded brightness-200" />
+                    <span class="font-semibold text-stone-100">Demand<span class="text-stone-500">Ops</span></span>
                 </div>
-                <p class="text-base-content/60 text-sm leading-relaxed">
+                <p class="text-stone-500 text-sm leading-relaxed">
                     The operating system for home improvement. Unfreezing demand through intelligence.
                 </p>
             </div>
 
             <div class="flex gap-16 flex-wrap">
                 <div>
-                    <h4 class="font-semibold text-sm mb-4">Company</h4>
-                    <ul class="space-y-3 text-sm text-base-content/60">
-                        <li><a href="#vision" class="hover:text-primary transition-colors">Vision</a></li>
-                        <li><a href="#products" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="#technology" class="hover:text-primary transition-colors">Technology</a></li>
-                        <li><a href="mailto:hello@demandops.com" class="hover:text-primary transition-colors">Contact</a></li>
+                    <h4 class="font-semibold text-stone-300 text-sm mb-4">Company</h4>
+                    <ul class="space-y-3 text-sm text-stone-500">
+                        <li><a href="#vision" class="hover:text-stone-300 transition-colors">Vision</a></li>
+                        <li><a href="#products" class="hover:text-stone-300 transition-colors">Products</a></li>
+                        <li><a href="#technology" class="hover:text-stone-300 transition-colors">Technology</a></li>
+                        <li><a href="mailto:hello@demandops.com" class="hover:text-stone-300 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-sm mb-4">Products</h4>
-                    <ul class="space-y-3 text-sm text-base-content/60">
-                        <li><a href="https://tuinplan.app/" class="hover:text-primary transition-colors">TuinPlan</a></li>
-                        <li><a href="#partners" class="hover:text-primary transition-colors">Retail API</a></li>
+                    <h4 class="font-semibold text-stone-300 text-sm mb-4">Products</h4>
+                    <ul class="space-y-3 text-sm text-stone-500">
+                        <li><a href="https://tuinplan.app/" class="hover:text-stone-300 transition-colors">TuinPlan</a></li>
+                        <li><a href="#partners" class="hover:text-stone-300 transition-colors">Retail API</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-sm mb-4">Connect</h4>
-                    <ul class="space-y-3 text-sm text-base-content/60">
-                        <li><a href="mailto:hello@demandops.com" class="hover:text-primary transition-colors">hello@demandops.com</a></li>
+                    <h4 class="font-semibold text-stone-300 text-sm mb-4">Connect</h4>
+                    <ul class="space-y-3 text-sm text-stone-500">
+                        <li><a href="mailto:hello@demandops.com" class="hover:text-stone-300 transition-colors">hello@demandops.com</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="pt-8 border-t border-base-300/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-base-content/40">
+        <div class="pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-600">
             <p>© 2025 DemandOps. All rights reserved.</p>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-base-content/60 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-base-content/60 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-stone-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-stone-400 transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>
 </footer>
 
 
-        <!-- AOS Animation Library -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="./js/app.js"></script>
+        <!-- MOBILE MENU SCRIPT -->
+        <script>
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        </script>
+
+        <!-- WEBGL SCRIPT -->
     </body>
 </html>
